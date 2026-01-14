@@ -4,7 +4,7 @@
 
 ### Preparation
 ```bash
-git clone --recursive https://github.com/Treemann/ms-swift-training-with-rocm.git
+git clone --recursive https://github.com/jun-amd/ms-swift-training-with-rocm.git
 cd ms-swift-training-with-rocm
 
 # Prepare the model and dataset of interest
@@ -22,7 +22,6 @@ bash run_1node_32b.sh
 
 ### Multi-node Training
 - Step1: Follow the instruction in `tools/use_host_bcm_ib_driver_in_container.sh` to properly set up the InfiniteBand driver (script `launch_rocm_container.sh` is for launch the container).
-- step2: Refer to `run_2node_ranks.sh` for running multi-node training.
 
 - Qwen3-8B
 ```
