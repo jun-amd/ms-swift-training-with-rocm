@@ -18,14 +18,14 @@ seq=32768
 mbs=1
 gbs=128
 tp=1
-pp=4
+pp=1
 ep=1
 
-log_file=${output_dir}/"swift_qwen3_30b_a3b_seq${seq}_tp${tp}_pp${pp}_ep${ep}_mbs${mbs}_gbs${gbs}_${current_time}.log"
+log_file=${output_dir}/"1node_swift_qwen3_8b_seq${seq}_tp${tp}_pp${pp}_ep${ep}_mbs${mbs}_gbs${gbs}_${current_time}.log"
 
 NPROC_PER_NODE=8 \
 megatron pt \
-    --model ${MODELSCOPE_CACHE}/models/Qwen/Qwen3-30B-A3B \
+    --model ${MODELSCOPE_CACHE}/models/Qwen/Qwen3-8B \
     --dataset ${MODELSCOPE_CACHE}/datasets/swift/chinese-c4 \
     --streaming true \
     --tensor_model_parallel_size ${tp} \
@@ -34,7 +34,6 @@ megatron pt \
     --load_safetensors true \
     --save_safetensors true \
     --recompute_granularity full --recompute_method uniform --recompute_num_layers 1 \
-    --moe_token_dispatcher_type allgather \
     --load_from_cache_file true \
     --torch_dtype bfloat16 \
     --split_dataset_ratio 0.01 \
@@ -48,7 +47,7 @@ megatron pt \
     --lr 1e-6 \
     --lr_warmup_fraction 0.05 \
     --min_lr 1e-7 \
-    --save megatron_output/Qwen3-30B-A3B \
+    --save megatron_output/Qwen3-8B \
     --eval_interval 20000 \
     --save_interval 20000 \
     --max_length ${seq} \

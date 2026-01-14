@@ -1,4 +1,0 @@
-# master node
-NNODES=2 NODE_RANK=0 MASTER_ADDR=10.2.96.7 IP_INTERFACE=enp49s0f1np1 MASTER_PORT=1978 bash run_multinodes.sh
-# worker node
-NNODES=2 NODE_RANK=1 MASTER_ADDR=10.2.96.7 IP_INTERFACE=enp49s0f1np1 MASTER_PORT=1978 bash run_multinodes.sh
